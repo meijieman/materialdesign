@@ -9,7 +9,9 @@ import android.view.ViewGroup;
 
 import com.foo.materialdesign.R;
 import com.foo.materialdesign.base.BaseFragment;
+import com.foo.materialdesign.widget.RotateLayout;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.OkHttpClient;
@@ -22,6 +24,9 @@ import okhttp3.Request;
  */
 public class Func1Fragment extends BaseFragment {
 
+    @Bind(R.id.rl_func1)
+    RotateLayout  mLayout;
+
     @Override
     protected int getLayoutRes() {
         return R.layout.fragment_func1;
@@ -29,7 +34,7 @@ public class Func1Fragment extends BaseFragment {
 
     @Override
     protected void init() {
-
+        mLayout.setAngle(160);
     }
 
 

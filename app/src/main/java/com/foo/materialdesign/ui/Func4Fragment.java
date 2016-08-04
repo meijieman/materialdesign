@@ -20,6 +20,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * @Desc: TODO
@@ -28,19 +29,22 @@ import butterknife.ButterKnife;
  */
 public class Func4Fragment extends BaseFragment {
 
-    @Bind(R.id.rv_func2)
-    RecyclerView mRecyclerView;
-
-    @Bind(R.id.srl_func2)
-    SwipeRefreshLayout mSwipeRefreshLayout;
-
     @Override
     protected int getLayoutRes() {
-        return 0;
+        return R.layout.fragment_func4;
     }
 
     @Override
     protected void init() {
 
+    }
+
+    @OnClick(R.id.btn_func4_click)
+    void OnClick(View view){
+        switch (view.getId()) {
+            case R.id.btn_func4_click:
+                skipIntent(SaveStateActivity.class, false);
+                break;
+        }
     }
 }

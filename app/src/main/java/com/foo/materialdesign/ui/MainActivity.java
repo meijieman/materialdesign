@@ -99,10 +99,11 @@ public class MainActivity extends BaseActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         MainTabPageAdapter adapter = new MainTabPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new Func1Fragment(), "行程单");
-        adapter.addFragment(new Func2Fragment(), "打赏");
-        adapter.addFragment(new Func2Fragment(), "个人中心");
-        adapter.addFragment(new Func2Fragment(), "朋友圈");
+        adapter.addFragment(new Func0Fragment(), "功能0");
+        adapter.addFragment(new Func1Fragment(), "功能1");
+        adapter.addFragment(new Func2Fragment(), "功能2");
+        adapter.addFragment(new Func3Fragment(), "功能3");
+        adapter.addFragment(new Func4Fragment(), "功能4");
         viewPager.setAdapter(adapter);
     }
 
@@ -129,8 +130,6 @@ public class MainActivity extends BaseActivity {
         });
     }
 
-    // 按返回退出App
-    private IsExit exit = new IsExit();
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -140,6 +139,9 @@ public class MainActivity extends BaseActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+    // 按返回退出App
+    private IsExit exit = new IsExit();
 
     private void pressAgainExit() {
         if (exit.isExit()) {

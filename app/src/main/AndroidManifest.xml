@@ -25,6 +25,8 @@
 
         <activity android:name=".ui.Demo1Activity"
                   android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".ui.SaveStateActivity"/>
     </application>
 
 </manifest>

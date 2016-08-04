@@ -3,6 +3,7 @@ package com.foo.materialdesign.base;
 import android.app.Application;
 
 import com.foo.materialdesign.common.CrashHandler;
+import com.litesuits.orm.LiteOrm;
 
 /**
  * @Desc: TODO
@@ -11,7 +12,12 @@ import com.foo.materialdesign.common.CrashHandler;
  */
 public class App extends Application {
 
-    private static App app;
+    private static App     app;
+    private static LiteOrm liteOrm;
+
+    public static LiteOrm getLiteOrm(){
+        return liteOrm;
+    }
 
     @Override
     public void onCreate() {
@@ -19,6 +25,11 @@ public class App extends Application {
         app = this;
         CrashHandler.getInstance().init(this, null);
 
+
+        if (liteOrm == null) {
+            liteOrm = LiteOrm.newSingleInstance(this, "liteorm.db");
+        }
+        liteOrm.setDebugged(true); // open the log
     }
 
     public static App getInstance() {

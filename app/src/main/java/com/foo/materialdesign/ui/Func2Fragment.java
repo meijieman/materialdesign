@@ -39,6 +39,7 @@ public class Func2Fragment extends BaseFragment {
         final Func2Adapter adapter = new Func2Adapter(getActivity());
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecyclerView.setAdapter(adapter);
+        mRecyclerView.setHasFixedSize(true);// 当 item 尺寸固定，设置这优化性能
         adapter.setData(getData());
         // 设置刷新图标的背景
         //        mSwipeRefreshLayout.setProgressBackgroundColorSchemeColor((getResources().getColor(R.color.colorPrimary)));

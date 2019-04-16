@@ -1,15 +1,7 @@
 package com.foo.materialdesign.ui;
 
-import android.content.Intent;
-
 import com.foo.materialdesign.R;
 import com.foo.materialdesign.base.BaseFragment;
-import com.foo.materialdesign.widget.RotateLayout;
-
-import butterknife.Bind;
-import butterknife.OnClick;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 
 /**
  * @Desc: TODO

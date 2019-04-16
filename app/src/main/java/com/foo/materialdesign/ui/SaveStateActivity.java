@@ -2,7 +2,6 @@ package com.foo.materialdesign.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
@@ -31,26 +30,6 @@ public class SaveStateActivity extends BaseActivity {
 
     @Bind(R.id.container)
     FrameLayout mContainer;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_save_state);
-        ButterKnife.bind(this);
-
-        //        findViewById(R.id.radio_button0).performClick();
-        ((RadioButton)findViewById(R.id.radio_button0)).setChecked(true);
-    }
-
-    @OnCheckedChanged({R.id.radio_button0, R.id.radio_button1, R.id.radio_button2, R.id.radio_button3, R.id.radio_button4})
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (isChecked) {
-            Fragment fragment = (Fragment)mFragmentPagerAdapter.instantiateItem(mContainer, buttonView.getId());
-            mFragmentPagerAdapter.setPrimaryItem(mContainer, 0, fragment);
-            mFragmentPagerAdapter.finishUpdate(mContainer);
-        }
-    }
-
     private FragmentPagerAdapter mFragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
         @Override
         public Fragment getItem(int position) {
@@ -76,6 +55,25 @@ public class SaveStateActivity extends BaseActivity {
             return 5;
         }
     };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_save_state);
+        ButterKnife.bind(this);
+
+        //        findViewById(R.id.radio_button0).performClick();
+        ((RadioButton) findViewById(R.id.radio_button0)).setChecked(true);
+    }
+
+    @OnCheckedChanged({R.id.radio_button0, R.id.radio_button1, R.id.radio_button2, R.id.radio_button3, R.id.radio_button4})
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (isChecked) {
+            Fragment fragment = (Fragment) mFragmentPagerAdapter.instantiateItem(mContainer, buttonView.getId());
+            mFragmentPagerAdapter.setPrimaryItem(mContainer, 0, fragment);
+            mFragmentPagerAdapter.finishUpdate(mContainer);
+        }
+    }
 
     @Override
     public void onBackPressed() {

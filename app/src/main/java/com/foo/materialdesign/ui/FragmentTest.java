@@ -26,6 +26,15 @@ public class FragmentTest extends Fragment {
         return fragment;
     }
 
+    // 没有下面的代码会出现切换tab的时候重影现象
+    @Override
+    public void setMenuVisibility(boolean menuVisible) {
+        super.setMenuVisibility(menuVisible);
+        if (this.getView() != null) {
+            this.getView().setVisibility(menuVisible ? View.VISIBLE : View.GONE);
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         System.out.println("--------- onCreateView");
@@ -35,16 +44,7 @@ public class FragmentTest extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TextView text1 = (TextView)view.findViewById(R.id.text1);
-        text1.setText("Fragment " + getArguments().getInt("position", 1)+ "\n" + new Date().toLocaleString());
-    }
-
-    // 没有下面的代码会出现切换tab的时候重影现象
-    @Override
-    public void setMenuVisibility(boolean menuVisible) {
-        super.setMenuVisibility(menuVisible);
-        if (this.getView() != null) {
-            this.getView().setVisibility(menuVisible ? View.VISIBLE : View.GONE);
-        }
+        TextView text1 = (TextView) view.findViewById(R.id.text1);
+        text1.setText("Fragment " + getArguments().getInt("position", 1) + "\n" + new Date().toLocaleString());
     }
 }

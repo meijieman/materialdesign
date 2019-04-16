@@ -1,4 +1,4 @@
-package com.foo.materialdesign.vo;
+package com.foo.materialdesign.bean;
 
 /**
  * @Desc: TODO

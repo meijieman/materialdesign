@@ -6,7 +6,6 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +13,7 @@ import android.view.View;
 
 import com.foo.materialdesign.R;
 import com.foo.materialdesign.base.BaseActivity;
+import com.major.base.util.ToastUtil;
 
 public class Demo1Activity extends BaseActivity {
 
@@ -22,32 +22,29 @@ public class Demo1Activity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo1);
 
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        CoordinatorLayout root = (CoordinatorLayout)findViewById(R.id.cl_root);
+        CoordinatorLayout root = findViewById(R.id.cl_root);
 
-        CollapsingToolbarLayout ctl = (CollapsingToolbarLayout)findViewById(R.id.ctl_main);
+        CollapsingToolbarLayout ctl = findViewById(R.id.ctl_main);
         assert ctl != null;
         ctl.setTitle("material design");
-        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         assert fab != null;
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final Snackbar snackbar =
-                        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
+        fab.setOnClickListener(view -> {
+            final Snackbar snackbar =
+                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
 
-                            }
-                        });
-                snackbar.show();
-            }
+                        }
+                    });
+            snackbar.show();
         });
     }
 
@@ -68,7 +65,7 @@ public class Demo1Activity extends BaseActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             // 设置按钮
-            showToast("setting");
+            ToastUtil.showShort("setting");
             return true;
         }
 

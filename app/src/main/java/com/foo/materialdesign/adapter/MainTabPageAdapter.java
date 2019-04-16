@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class MainTabPageAdapter extends FragmentPagerAdapter {
 
-    private final List<Fragment> mFragments      = new ArrayList<>();
-    private final List<String>   mFragmentTitles = new ArrayList<>();
+    private final List<Fragment> mFragments = new ArrayList<>();
+    private final List<String> mFragmentTitles = new ArrayList<>();
 
     public MainTabPageAdapter(FragmentManager fm) {
         super(fm);

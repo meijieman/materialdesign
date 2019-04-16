@@ -22,7 +22,8 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mActivity = (BaseActivity)context;
+
+        mActivity = (BaseActivity) requireActivity();
     }
 
     @Nullable
@@ -38,6 +39,7 @@ public abstract class BaseFragment extends Fragment {
 
     /**
      * 获取布局
+     *
      * @return
      */
     protected abstract int getLayoutRes();
@@ -46,9 +48,5 @@ public abstract class BaseFragment extends Fragment {
 
     protected void skipIntent(Class clz, boolean isFinish) {
         mActivity.skipIntent(clz, isFinish);
-    }
-
-    protected void showToast(String msg) {
-        mActivity.showToast(msg);
     }
 }

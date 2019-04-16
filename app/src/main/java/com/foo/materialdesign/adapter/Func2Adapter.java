@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.foo.materialdesign.R;
-import com.foo.materialdesign.vo.Item;
+import com.foo.materialdesign.bean.Item;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class Func2Adapter extends RecyclerView.Adapter<ViewHolder> {
     private Activity mActivity;
     private List<Item> mData;
 
-    public Func2Adapter(Activity ac){
+    public Func2Adapter(Activity ac) {
         mActivity = ac;
     }
 
@@ -48,7 +48,7 @@ public class Func2Adapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Func2Holder vh = (Func2Holder)holder;
+        Func2Holder vh = (Func2Holder) holder;
         vh.tv.setText(mData.get(position).name);
 
         vh.iv.setImageResource(R.mipmap.ic_launcher);
@@ -59,7 +59,7 @@ public class Func2Adapter extends RecyclerView.Adapter<ViewHolder> {
         return mData == null ? 0 : mData.size();
     }
 
-    static class Func2Holder extends RecyclerView.ViewHolder{
+    static class Func2Holder extends RecyclerView.ViewHolder {
         @Bind(R.id.tv_item_func2)
         TextView tv;
         @Bind(R.id.iv_item_func2)

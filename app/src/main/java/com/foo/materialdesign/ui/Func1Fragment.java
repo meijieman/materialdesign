@@ -1,18 +1,12 @@
 package com.foo.materialdesign.ui;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.foo.materialdesign.R;
 import com.foo.materialdesign.base.BaseFragment;
 import com.foo.materialdesign.widget.RotateLayout;
 
 import butterknife.Bind;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -25,7 +19,7 @@ import okhttp3.Request;
 public class Func1Fragment extends BaseFragment {
 
     @Bind(R.id.rl_func1)
-    RotateLayout  mLayout;
+    RotateLayout mLayout;
 
     @Override
     protected int getLayoutRes() {
@@ -39,12 +33,12 @@ public class Func1Fragment extends BaseFragment {
 
 
     @OnClick(R.id.btn_demo1)
-    void onClick(){
+    void onClick() {
         Intent intent = new Intent(getActivity(), Demo1Activity.class);
         startActivity(intent);
     }
 
-    public void method(){
+    public void method() {
 
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url("").build();

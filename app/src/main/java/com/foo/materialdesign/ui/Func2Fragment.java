@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import com.foo.materialdesign.R;
 import com.foo.materialdesign.adapter.Func2Adapter;
 import com.foo.materialdesign.base.BaseFragment;
-import com.foo.materialdesign.vo.Item;
+import com.foo.materialdesign.bean.Item;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -69,7 +69,7 @@ public class Func2Fragment extends BaseFragment {
     public List<Item> getData() {
         List<Item> mData = new ArrayList<>();
         Item item = new Item();
-        item.name= new Date().toString();
+        item.name = new Date().toString();
         mData.add(item);
 
         return mData;

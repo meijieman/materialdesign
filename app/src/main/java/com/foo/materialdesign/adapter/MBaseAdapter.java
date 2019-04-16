@@ -16,9 +16,9 @@ import java.util.List;
 public abstract class MBaseAdapter<T> extends BaseAdapter {
 
     protected Activity pContext;
-    protected List<T>  pData;
+    protected List<T> pData;
 
-    public MBaseAdapter(Activity ac){
+    public MBaseAdapter(Activity ac) {
         pContext = ac;
     }
 
@@ -32,14 +32,15 @@ public abstract class MBaseAdapter<T> extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public void addDatas(List<T> data){
+    public void addDatas(List<T> data) {
         if (pData == null) {
             pData = new ArrayList<>();
         }
         pData.addAll(data);
         notifyDataSetChanged();
     }
-    public void addData(T data){
+
+    public void addData(T data) {
         if (pData == null) {
             pData = new ArrayList<>();
         }

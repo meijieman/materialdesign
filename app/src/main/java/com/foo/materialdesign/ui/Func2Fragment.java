@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 
 /**
  * @Desc: TODO
@@ -23,10 +23,10 @@ import butterknife.Bind;
  */
 public class Func2Fragment extends BaseFragment {
 
-    @Bind(R.id.rv_func2)
+    @BindView(R.id.rv_func2)
     RecyclerView mRecyclerView;
 
-    @Bind(R.id.srl_func2)
+    @BindView(R.id.srl_func2)
     SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override

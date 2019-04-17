@@ -1,12 +1,13 @@
 package com.foo.materialdesign.ui;
 
 import android.content.Intent;
+import android.view.View;
 
 import com.foo.materialdesign.R;
 import com.foo.materialdesign.base.BaseFragment;
 import com.foo.materialdesign.widget.RotateLayout;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -18,7 +19,7 @@ import okhttp3.Request;
  */
 public class Func1Fragment extends BaseFragment {
 
-    @Bind(R.id.rl_func1)
+    @BindView(R.id.rl_func1)
     RotateLayout mLayout;
 
     @Override
@@ -32,10 +33,20 @@ public class Func1Fragment extends BaseFragment {
     }
 
 
-    @OnClick(R.id.btn_demo1)
-    void onClick() {
-        Intent intent = new Intent(getActivity(), Demo1Activity.class);
-        startActivity(intent);
+    @OnClick({R.id.btn_demo1, R.id.btn_demo2})
+    void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_demo1: {
+                Intent intent = new Intent(getActivity(), Demo1Activity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_demo2: {
+                Intent intent = new Intent(getActivity(), BottomNavigationActivity.class);
+                startActivity(intent);
+                break;
+            }
+        }
     }
 
     public void method() {

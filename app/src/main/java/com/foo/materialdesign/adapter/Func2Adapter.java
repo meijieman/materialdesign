@@ -14,7 +14,7 @@ import com.foo.materialdesign.bean.Item;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -60,9 +60,9 @@ public class Func2Adapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
     static class Func2Holder extends RecyclerView.ViewHolder {
-        @Bind(R.id.tv_item_func2)
+        @BindView(R.id.tv_item_func2)
         TextView tv;
-        @Bind(R.id.iv_item_func2)
+        @BindView(R.id.iv_item_func2)
         ImageView iv;
 
 

@@ -11,30 +11,36 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.foo.materialdesign.R;
 import com.foo.materialdesign.adapter.MainTabPageAdapter;
 import com.foo.materialdesign.base.BaseActivity;
 import com.foo.materialdesign.util.IsExit;
+import com.major.base.log.LogUtil;
 import com.major.base.util.ToastUtil;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
 
-    @Bind(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar mToolbar;
-    @Bind(R.id.drawer_layout)
+    @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
-    @Bind(R.id.nav_view)
+    @BindView(R.id.nav_view)
     NavigationView mNavigationView;
-    @Bind(R.id.viewpager)
+    @BindView(R.id.viewpager)
     ViewPager mViewPager;
-    @Bind(R.id.tl)
+    @BindView(R.id.tl)
     TabLayout mTabLayout;
-    @Bind(R.id.fab)
+    @BindView(R.id.fab)
     FloatingActionButton mFloatingActionButton;
+
     // 按返回退出App
     private IsExit exit = new IsExit();
 
@@ -42,6 +48,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ButterKnife.bind(this);
 
         setupToolbar();
@@ -49,7 +56,8 @@ public class MainActivity extends BaseActivity {
         setupViewPager(mViewPager);
 
         mTabLayout.setupWithViewPager(mViewPager);
-        mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        mTabLayout.setInlineLabel(true);
+        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 mViewPager.setCurrentItem(tab.getPosition());
@@ -89,16 +97,36 @@ public class MainActivity extends BaseActivity {
         ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open, R.string.close);
         drawerToggle.syncState();
         mDrawerLayout.addDrawerListener(drawerToggle);
+
+        getWindow().setNavigationBarColor(getResources().getColor(R.color.colorPrimary));
     }
 
     private void setupViewPager(ViewPager viewPager) {
         MainTabPageAdapter adapter = new MainTabPageAdapter(getSupportFragmentManager());
+        adapter.addFragment(new DialogFragment(), "DialogFragment");
         adapter.addFragment(new Func0Fragment(), "功能0");
         adapter.addFragment(new Func1Fragment(), "功能1");
         adapter.addFragment(new Func2Fragment(), "功能2");
         adapter.addFragment(new Func3Fragment(), "功能3");
         adapter.addFragment(new Func4Fragment(), "功能4");
         viewPager.setAdapter(adapter);
+        viewPager.setOffscreenPageLimit(2);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
@@ -118,6 +146,32 @@ public class MainActivity extends BaseActivity {
             }
             return true;
         });
+        View headerView = navigationView.getHeaderView(0);
+        LogUtil.i("headerView " + headerView);
+        ImageView head = headerView.findViewById(R.id.imageView_nav_header);
+
+//        navigationView.setItemIconTintList(null);
+        headerView.setOnClickListener(v->{ToastUtil.showShort("登录");
+            mDrawerLayout.closeDrawers();
+        });
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                ToastUtil.showShort("action_settings");
+
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

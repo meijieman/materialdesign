@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * @Desc: TODO
@@ -18,6 +19,7 @@ import butterknife.ButterKnife;
 public abstract class BaseFragment extends Fragment {
 
     protected BaseActivity mActivity;
+    private Unbinder mBind;
 
     @Override
     public void onAttach(Context context) {
@@ -31,7 +33,7 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(getLayoutRes(), null);
-        ButterKnife.bind(this, view);
+        mBind = ButterKnife.bind(this, view);
 
         init();
         return view;

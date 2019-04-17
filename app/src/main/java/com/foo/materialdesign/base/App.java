@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.litesuits.orm.LiteOrm;
 import com.major.base.crash.CrashHandler;
+import com.major.base.log.LogUtil;
+import com.major.base.util.ToastUtil;
 
 /**
  * @Desc: TODO
@@ -29,6 +31,8 @@ public class App extends Application {
         app = this;
 
         CrashHandler.getInstance().init(this, getFilesDir().toString(), true);
+        ToastUtil.init(this);
+        LogUtil.init(getPackageName(), "tag_md", true, false);
 
         if (liteOrm == null) {
             liteOrm = LiteOrm.newSingleInstance(this, "liteorm.db");

@@ -5,7 +5,7 @@ android {
 
     defaultConfig {
         applicationId "com.foo.materialdesign"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -22,6 +22,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    lintOptions {
+        // App is not indexable by Google Search
+        disable 'GoogleAppIndexingWarning'
+    }
 }
 
 dependencies {
@@ -33,8 +38,13 @@ dependencies {
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
 
-    implementation 'com.jakewharton:butterknife:7.0.1'
-    annotationProcessor 'com.jakewharton:butterknife:7.0.1'
+    // butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
 

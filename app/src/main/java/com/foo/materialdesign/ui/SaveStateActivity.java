@@ -10,7 +10,7 @@ import android.widget.RadioButton;
 import com.foo.materialdesign.R;
 import com.foo.materialdesign.base.BaseActivity;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnCheckedChanged;
 
@@ -28,8 +28,9 @@ import butterknife.OnCheckedChanged;
 //public class SaveStateActivity extends FragmentActivity {
 public class SaveStateActivity extends BaseActivity {
 
-    @Bind(R.id.container)
+    @BindView(R.id.container)
     FrameLayout mContainer;
+
     private FragmentPagerAdapter mFragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
         @Override
         public Fragment getItem(int position) {

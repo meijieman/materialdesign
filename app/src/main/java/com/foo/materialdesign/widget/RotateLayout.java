@@ -36,6 +36,7 @@ public class RotateLayout extends ViewGroup {
     private final RectF tempRectF2 = new RectF();
     private final float[] viewTouchPoint = new float[2];
     private final float[] childTouchPoint = new float[2];
+
     private int angle;
     private boolean angleChanged = true;
 

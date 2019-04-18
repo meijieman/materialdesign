@@ -33,7 +33,7 @@ public class Func1Fragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.btn_demo1, R.id.btn_demo2})
+    @OnClick({R.id.btn_demo1, R.id.btn_demo2, R.id.btn_demo3})
     void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_demo1: {
@@ -43,6 +43,11 @@ public class Func1Fragment extends BaseFragment {
             }
             case R.id.btn_demo2: {
                 Intent intent = new Intent(getActivity(), BottomNavigationActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.btn_demo3: {
+                Intent intent = new Intent(getActivity(), AppActivity.class);
                 startActivity(intent);
                 break;
             }

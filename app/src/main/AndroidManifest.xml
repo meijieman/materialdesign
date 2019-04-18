@@ -30,6 +30,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".ui.SaveStateActivity" />
+        <activity android:name=".ui.AppActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.DetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
 
         <activity android:name=".ui.BottomNavigationActivity"
             android:theme="@style/AppTheme.NoActionBar" />

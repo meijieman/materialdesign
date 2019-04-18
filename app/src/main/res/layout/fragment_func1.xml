@@ -57,6 +57,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="BottomNavigationActivity" />
+            <Button
+                android:id="@+id/btn_demo3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AppActivity" />
 
             <com.foo.materialdesign.widget.RotateLayout
                 android:id="@+id/rl_func1"
